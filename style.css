@@ -1,0 +1,74 @@
+
+html{
+    height:100%;
+    width:100%;
+
+}
+
+body{
+
+    height:100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.center{
+
+    width : 25%;
+    height:75%;
+    border: 1px solid black;
+
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    
+}
+
+input[type="text"] {
+    width: 500px;
+    border: none;
+    height: 40px;
+    text-align: right;
+    padding:0;
+    margin:0;
+
+    
+}
+
+.screen{
+    height:25%;
+    border: 1px solid red;
+    margin-bottom: 10px;;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding:5px; */
+
+}
+
+#inputView{
+    width:100%;
+}
+
+
+.screen > *{
+
+    width:100%
+}
+
+
+#resultsView > *{
+    text-align: right;
+}
+
+.buttons{
+    height:75%;
+    border: 1px solid blue;
+}
+
+
