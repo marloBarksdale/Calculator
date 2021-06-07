@@ -2,7 +2,7 @@
 html{
     height:100%;
     width:100%;
-
+    background-color: black;
 }
 
 body{
@@ -26,6 +26,7 @@ body{
     display:flex;
     flex-direction: column;
     padding:10px;
+    background-color: blue;
     
 }
 
@@ -69,6 +70,10 @@ input[type="text"] {
 .buttons{
     height:75%;
     border: 1px solid blue;
+}
+
+.buttonsView{
+    height:100%;
 }
 
 
