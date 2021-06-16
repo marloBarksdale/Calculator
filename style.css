@@ -67,13 +67,14 @@ input[type="text"] {
     text-align: right;
 }
 
-.buttons{
-    height:75%;
-    border: 1px solid blue;
+
+
+.buttonsView > *{
+    font-size:30px;
 }
 
-.buttonsView{
+ .buttonsView{
     height:100%;
-}
+} 
 
 
