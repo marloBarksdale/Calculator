@@ -1,12 +1,15 @@
 
+//Try splicing the stack so you will have a stack only containing the 
+
 
 let buttons = document.querySelector(".buttonsView")
-let answer = 0;
+let answer = null;
 let num1 = "";
 let num2 = "";
 const num = 4;
 let operatorActive = false;
-let stack=[];
+let stack = [];
+
 let operator = "";
 
 
@@ -31,100 +34,120 @@ deleteButton.style.backgroundColor = " blue";
 const keys = document.querySelectorAll('button');
 keys.forEach(key => key.addEventListener('click', function () {
 
-    if(key.classList.contains("number")){
 
-        pushIt(key);
+  if (key.classList.contains("number")) {
+
+    if(operatorActive === false){
+      answer = null;
     }
-  
-    if(key.classList.contains("operator")){
-    
+
+    stack.push(key.value);
+    console.log(stack.toString());
+    // num1= stack.slice(0, stack.indexOf(operator));
+    // num1 = num1.join("");
+
+
+    // num2=stack.slice(stack.indexOf(operator)+1);
+    // num2=num2.join("");
+    // console.log(num1);
+    // console.log(num2);
+
+  }
+
+  if (key.classList.contains("operator")) {
+
+    if(operatorActive ===false && answer!=null){
+
+      console.log("here3");
+      stack= answer.toString().split("");
+    }
+   
+
+    if (stack[stack.length-1]!= operator && operatorActive) {
+      console.log("here");
+      doMath();
+      stack = [];
+      stack = answer.toString().split("");
+      operator = key.value;
+      stack.push(operator);
       operatorActive = true;
-         operator = key.value;
-            //add();
-            stack.push(operator);
-          }
+     
 
-    }));
+    }
+    else {
+console.log("here 2");
+      operatorActive = true;
+      operator = key.value;
+      stack.push(operator);
+      console.log(stack.toString());
+      
+    }
 
-
-const viewport = document.querySelector('h3');
-viewport.textContent = answer;
-
-const inputView = document.querySelector("#inputView")
-
-function add() {
-
-  
-  
- //if last index is not a number or maybe erase last and replace 
- 
-  
-  num1 = parseInt(num1);
-  num2= parseInt(num2);
-
-  console.log(num1 + num2);
-  
-}
-
-
-
- 
-
-
-
-function substract(a, b) {
-  return a - b;
-}
-
-
-function divide(a, b) {
-  return a / b;
-}
-
-function multiply() {
-
-  
-  num1 = parseInt(num1);
-  num2= parseInt(num2);
-
-  console.log(num1 * num2);
-}
-
-
-
-function pushIt(e) {
-
-  stack.push(e.value);
-
-  console.log(stack.join(""));
-
-if(operatorActive){
-   num2 = num2 + e.value;
-}
-else{
-  num1 = num1+ e.value;
-}
-
-
-
-
-}
-
-
-
-function doMath(){
-
- 
-
-   if(operator === "+"){
-      add();
   }
 
 
-  if(operator === '*'){
-    multiply();
-  }
+}));
+
+
+
+
+
+function addition() {
+
+
+  num1 = stack.slice(0, stack.indexOf(operator));
+  num1 = num1.join("");
+
+
+  num2 = stack.slice(stack.indexOf(operator) + 1);
+  num2 = num2.join("");
+
+
+
+
+  num1 = parseInt(num1);
+  num2 = parseInt(num2);
+
+
+  return num1 + num2;
 
 
 }
 
+function multiplication() {
+
+  num1 = stack.slice(0, stack.indexOf(operator));
+  num1 = num1.join("");
+
+
+  num2 = stack.slice(stack.indexOf(operator) + 1);
+  num2 = num2.join("");
+
+
+
+  num1 = parseInt(num1);
+  num2 = parseInt(num2);
+  return num1 * num2;
+}
+function doMath() {
+
+
+  if (operator === "+") {
+
+    answer = addition();
+    console.log(answer);
+   
+
+  }
+
+
+  if (operator === "*") {
+
+    answer = multiplication();
+    console.log(answer);
+  }
+
+  stack=[];
+  operatorActive = false;
+
+}
