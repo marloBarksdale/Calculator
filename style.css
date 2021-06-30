@@ -1,4 +1,6 @@
 
+
+
 html{
     height:100%;
     width:100%;
@@ -77,4 +79,35 @@ input[type="text"] {
     height:100%;
 } 
 
+@media screen and (max-width: 1024px) {
+    .center {
+      height:90%;
+      width:90%;
+    }
 
+
+
+    #resultsView{
+        height :100%;;
+    }
+
+    .screen{
+        height:50%;
+    }
+
+
+    h3{
+
+        font-size: 7em;
+
+    }
+    input[type="text"] {
+        width: 500px;
+        border: none;
+        height: 100px;
+        text-align: right;
+        padding:0;
+        margin:0;
+  }
+
+}
