@@ -109,6 +109,7 @@ input[type="text"] {
         text-align: right;
         padding:0;
         margin:0;
+        font-size:75px;
   }
 
 }
